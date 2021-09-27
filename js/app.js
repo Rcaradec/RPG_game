@@ -37,8 +37,14 @@ const app = {
       }
       board.appendChild(row);
     }
-
-    //
+  },
+  clearBoard: () => {
+    const toClear = document.getElementById("board");
+    toClear.innerHTML = "";
+  },
+  redrawBoard: () => {
+    app.clearBoard();
+    app.drawBoard();
   },
 };
 
