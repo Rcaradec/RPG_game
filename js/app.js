@@ -1,4 +1,4 @@
-var app = {
+const app = {
   init: function () {
     console.log("init !");
     app.drawBoard();
@@ -15,20 +15,34 @@ var app = {
   drawBoard: () => {
     const board = document.getElementById("board");
     // je veux créer 4 lignes en div
-    for (let i = 0; i < 4; i++) {
-      let row = document.createElement("div");
+    //j'utilise let "y" p/r l'axe Y
+    for (let y = 0; y < 4; y++) {
+      const row = document.createElement("div");
       row.className = "row";
-      console.log(row);
       // Je veux rajouter 6 Div dans mes 4 row
-      for (let j = 0; j < 6; j++) {
-        let cell = document.createElement("div");
+      // j utilise let "x" par rapport a l axe X
+      for (let x = 0; x < 6; x++) {
+        const cell = document.createElement("div");
         cell.className = "cell";
-        console.log(cell);
+
+        if (x === app.targetCell.x && y === app.targetCell.y) {
+          cell.classlist.add("targetCell");
+        }
+        if (x === app.player.x && y === app.player.y) {
+          const playerDiv = document.createElement("div");
+          playerDiv.className = "player";
+          cell.appendChild(playerDiv);
+        }
         row.appendChild(cell);
       }
       board.appendChild(row);
     }
+
+    //
   },
 };
 
 document.addEventListener("DOMContentLoaded", app.init);
+// const clicked = document.addEventListener("click", () => {
+//   console.log("clic clic boom");
+// });

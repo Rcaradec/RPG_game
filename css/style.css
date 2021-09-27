@@ -33,3 +33,8 @@ body {
   background-color: aquamarine;
   border: 1px solid black;
 }
+
+/* //RAJOUT JOUEUR ET CASE ARRIVEE */
+.targetCell {
+  background-color: paleblue;
+}
